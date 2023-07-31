@@ -8,6 +8,8 @@ def remove_main(file_path):
     except OSError as e:
         print(f"Error deleting file: {e.filename} - {e.strerror}")
 
+def delete_space_elements(arr):
+    return [element for element in arr if element != '']
 
 def compile_and_run_java(java_file):
     # Compile the Java file
@@ -62,7 +64,7 @@ Enter a number between 1 and 15 to display the corresponding apostle (or press E
     expected_output_lines = expected_output.splitlines()
 
 
-    if(stdout_lines == expected_output_lines):
+    if(delete_space_elements(stdout_lines) == delete_space_elements(expected_output_lines)):
         print("Well done!")
         remove_main("Main.class")
     else:
